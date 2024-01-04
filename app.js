@@ -9,6 +9,7 @@ import logger from 'morgan';
 import cors from 'cors';
 
 import indexRouter from './routes/index.js';
+import authRouter from './routes/auth/index.js';
 
 import { CLIENT_URL, DB_URL, PORT } from './config/index.js';
 import mongoose from 'mongoose';
@@ -41,6 +42,7 @@ app.get('/', (req, res) => {
 });
 
 app.use('/api', indexRouter);
+app.use('/api/auth', authRouter);
 
 app.listen(PORT, () => {
   console.log(`Listening on port ${PORT}`);
